@@ -17,3 +17,11 @@
 .display-contacts{
     margin-top: 3rem;
 }
+
+form {
+    display: none;
+  }
+  
+  form.show {
+    display: block;
+  }

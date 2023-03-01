@@ -1,0 +1,10 @@
+.container{
+    margin-top: 5rem;
+}
+
+.container .add-title{
+    margin:5rem;
+}
+.container form .button button{
+    margin-top: 2rem;
+}

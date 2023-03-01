@@ -12,6 +12,7 @@ export class ContactsService {
 
   private getContactApiUrl = Constants.BASE_URL+'contacts'
   private createContactApiUrl = Constants.BASE_URL+'addContact'
+  // private deleteApiUrl = Constants.BASE_URL+`deleteContact/${id}`
 
   constructor(private http:HttpClient) { }
 
@@ -22,5 +23,10 @@ export class ContactsService {
   createContact(firstName:string, lastName:string,email:string, phoneNumber:number): Observable<CreateContact>{
     const body = {firstName:firstName, lastName:lastName, email:email, phoneNumber:phoneNumber}
     return this.http.post<CreateContact>(this.createContactApiUrl,body)
+  }
+
+  deleteContact(id:number):Observable<any>{
+    const url =`${Constants.BASE_URL}deleteContact/${id}`; 
+    return this.http.get(url)
   }
 }

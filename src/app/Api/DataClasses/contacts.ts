@@ -5,11 +5,11 @@ export interface Contacts {
 }
 
 export interface note{
-    id:number | null;
+    id:number ;
     firstName:string;
     lastName:string;
     email:string;
-    phoneNumber:number | null;
+    phoneNumber:number ;
     created_at:string;
     updated_at:string;
 }

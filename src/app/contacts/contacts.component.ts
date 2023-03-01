@@ -10,10 +10,21 @@ import { Contacts, note } from '../Api/DataClasses/contacts';
 export class ContactsComponent implements OnInit{
   contacts : note[]=[]
 
+  loadContacts(){
+    this.contactsService.getContacts().subscribe(response =>{
+      this.contacts = response.notes
+    })
+  }
+
   constructor(private contactsService: ContactsService){}
 ngOnInit(): void {
-  this.contactsService.getContacts().subscribe(response =>{
-    this.contacts = response.notes
+  this.loadContacts()
+}
+
+deleteContact(id:number){
+  this.contactsService.deleteContact(id).subscribe(()=>{
+    this.loadContacts()
   })
 }
+
 }

@@ -9,7 +9,7 @@ export interface note{
     firstName:string;
     lastName:string;
     email:string;
-    phoneNumber:BigInteger;
+    phoneNumber:number;
     created_at:string;
     updated_at:string;
 }

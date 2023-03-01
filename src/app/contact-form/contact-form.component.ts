@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ContactsService } from '../Api/ApiServices/contacts.service';
 import { CreateContact } from '../Api/DataClasses/create-contact';
 
@@ -13,7 +14,7 @@ export class ContactFormComponent {
   email:string='';
   phoneNumber:number=0;
 
-  constructor(private createContactsService:ContactsService){}
+  constructor(private router:Router ,private createContactsService:ContactsService){}
 
  
   CreateNewContact(){
@@ -22,11 +23,16 @@ export class ContactFormComponent {
     .subscribe((response:CreateContact)=>{
       if(response.success){
         console.log("success")
+        this.router.navigate(['']);
       }else{
         console.log("failed")
+        alert('An error occurred while fetching the data.');
+        
       }
       
     })
   }
+
+  
 
 }

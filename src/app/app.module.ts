@@ -7,12 +7,14 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactsComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

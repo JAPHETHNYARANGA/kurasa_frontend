@@ -1,0 +1,23 @@
+.title{
+    margin-top: 2rem;
+    
+    color: green;
+}
+.title>h3{
+    font-size: 3rem;
+    font-weight: bold;
+}
+.add-title{
+    margin-top: 3rem;
+}
+.add-title button{
+    width: 10rem;
+}
+
+.display-contacts{
+    margin-top: 3rem;
+}
+
+
+  
+ 

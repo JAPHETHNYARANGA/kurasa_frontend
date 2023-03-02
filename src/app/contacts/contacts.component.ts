@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ContactsService } from '../Api/ApiServices/contacts.service';
 import { Contacts, note } from '../Api/DataClasses/contacts';
 
@@ -16,7 +17,7 @@ export class ContactsComponent implements OnInit{
     })
   }
 
-  constructor(private contactsService: ContactsService){}
+  constructor(private router:Router,private contactsService: ContactsService){}
 ngOnInit(): void {
   this.loadContacts()
 }
@@ -25,6 +26,11 @@ deleteContact(id:number){
   this.contactsService.deleteContact(id).subscribe(()=>{
     this.loadContacts()
   })
+}
+editContact(id:number){
+  
+    // this.router.navigate(['/items', this.contacts.id, 'edit']);
+  
 }
 
 }

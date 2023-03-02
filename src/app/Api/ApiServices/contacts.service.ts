@@ -12,7 +12,7 @@ export class ContactsService {
 
   private getContactApiUrl = Constants.BASE_URL+'contacts'
   private createContactApiUrl = Constants.BASE_URL+'addContact'
-  // private deleteApiUrl = Constants.BASE_URL+`deleteContact/${id}`
+  // private getSpecificContactApiUrl = Constants.BASE_URL+`contacts/${id}`
 
   constructor(private http:HttpClient) { }
 
@@ -28,5 +28,14 @@ export class ContactsService {
   deleteContact(id:number):Observable<any>{
     const url =`${Constants.BASE_URL}deleteContact/${id}`; 
     return this.http.get(url)
+  }
+
+  getSpecificContact(id:number):Observable<Contacts>{
+    return this.http.get<Contacts>(`http://127.0.0.1:8000/api/contacts/${id}`)
+
+  }
+
+  updateContact(){
+
   }
 }

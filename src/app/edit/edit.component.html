@@ -4,7 +4,7 @@
     </div>
     <h5 class="text-center"> Edit Contact</h5>
     
-        <form [formGroup]="editContact" >
+        <form [formGroup]="editContact" (ngSubmit)="updateContact()">
         <div class="form-group">
             <label for="exampleFormControlInput1">First Name</label>
             <input type="text" class="form-control" id="exampleFormControlInput1"   formControlName="firstName" required>

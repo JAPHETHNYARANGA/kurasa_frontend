@@ -35,7 +35,7 @@ export class ContactsService {
 
   }
 
-  updateContact(){
-
+  updateContact(id:number, data:any){
+    return this.http.put<Contacts>(`http://127.0.0.1:8000/api/updateContact/${id}`, data)
   }
 }

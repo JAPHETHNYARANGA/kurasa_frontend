@@ -31,6 +31,7 @@ export class EditComponent implements OnInit{
 }
   ngOnInit(): void {
     
+    
     this.contactsService.getSpecificContact(this.router.snapshot.params['id']).subscribe((response:any)=>{
      
       

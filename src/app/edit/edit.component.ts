@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ContactsService } from '../Api/ApiServices/contacts.service';
 import { note } from '../Api/DataClasses/contacts';
 import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-edit',
@@ -9,10 +10,19 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit{
-  contacts : note[]=[]
+  form!: FormGroup;
+  contacts : note[] = []
 
-  constructor(private contactsService:ContactsService,private router:ActivatedRoute){}
+  // noteData: any;
 
+  constructor(private contactsService:ContactsService,private router:ActivatedRoute, private fb:FormBuilder){}
+
+  editContact = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    email:new FormControl(''),
+    phoneNumber: new FormControl('')
+  })
 
   getSpecificContact(id:number){
     this.contactsService.getSpecificContact(id).subscribe((response=>{
@@ -20,11 +30,24 @@ export class EditComponent implements OnInit{
       }))
 }
   ngOnInit(): void {
-    this.contactsService.getSpecificContact(this.router.snapshot.params['id']).subscribe((response=>{
-      console.log(response)
-      this.contacts = response.notes
-    }))
+    
+    this.contactsService.getSpecificContact(this.router.snapshot.params['id']).subscribe((response:any)=>{
+      console.log(response.note['firstName'])
+      
+      this.editContact = new FormGroup({
+        firstName: new FormControl(response.note['firstName']),
+        lastName: new FormControl(response.note['lastName']),
+        email:new FormControl(response.note['email']),
+        phoneNumber: new FormControl(response.note['phoneNumber'])
+      })
+      
+    })
+    
   }
  
+  // firstName:string='';
+  // lastName:string='';
+  // email:string='';
+  // phoneNumber:number=0;
 
 }

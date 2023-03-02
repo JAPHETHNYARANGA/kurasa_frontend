@@ -27,7 +27,6 @@ export class ContactFormComponent {
       }else{
         console.log("failed")
         alert('An error occurred while fetching the data.');
-        
       }
       
     })

@@ -30,6 +30,7 @@ deleteContact(id:number){
 editContact(id:number){
   
     // this.router.navigate(['/items', this.contacts.id, 'edit']);
+    console.log(id)
   
 }
 

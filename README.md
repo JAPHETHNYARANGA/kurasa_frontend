@@ -12,6 +12,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 # Backend NB
 * the aplication uses a live backed by default, to switch to the local backend, navigate to the constants folder , comment the live base url and uncomment the local base url.
 
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

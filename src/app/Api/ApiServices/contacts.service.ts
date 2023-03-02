@@ -31,11 +31,11 @@ export class ContactsService {
   }
 
   getSpecificContact(id:number):Observable<Contacts>{
-    return this.http.get<Contacts>(`https://kurasa.lakecitystudios.co.ke/api/contacts/${id}`)
+    return this.http.get<Contacts>(` ${Constants.BASE_URL}contacts/${id}`)
 
   }
 
   updateContact(id:number, data:any){
-    return this.http.put<Contacts>(`https://kurasa.lakecitystudios.co.ke/api/updateContact/${id}`, data)
+    return this.http.put<Contacts>(`${Constants.BASE_URL}updateContact/${id}`, data)
   }
 }
